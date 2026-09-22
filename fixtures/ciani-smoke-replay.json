@@ -1,0 +1,1664 @@
+{
+  "formatVersion": 1,
+  "rulesVersion": "vault-1",
+  "config": {
+    "name": "Ciani external seat smoke",
+    "layouts": {
+      "A": {
+        "core": 4,
+        "locks": [
+          1,
+          3
+        ],
+        "traps": [
+          2,
+          4
+        ]
+      },
+      "B": {
+        "core": 3,
+        "locks": [],
+        "traps": []
+      }
+    },
+    "entrants": {
+      "A": "external",
+      "B": "scripted"
+    },
+    "styles": {
+      "A": {
+        "raider": "direct",
+        "sentinel": "pursuit"
+      },
+      "B": {
+        "raider": "direct",
+        "sentinel": "patrol"
+      }
+    }
+  },
+  "turns": [
+    {
+      "leg": 1,
+      "turn": 1,
+      "actions": {
+        "A": {
+          "type": "move",
+          "target": 1
+        },
+        "B": {
+          "type": "move",
+          "target": 1
+        }
+      },
+      "events": [
+        {
+          "leg": 1,
+          "turn": 1,
+          "kind": "raider-move",
+          "actor": "A",
+          "node": 1,
+          "amount": null,
+          "detail": "Raider enters North."
+        },
+        {
+          "leg": 1,
+          "turn": 1,
+          "kind": "sentinel-move",
+          "actor": "B",
+          "node": 1,
+          "amount": null,
+          "detail": "Sentinel moves to North."
+        },
+        {
+          "leg": 1,
+          "turn": 1,
+          "kind": "collision",
+          "actor": "B",
+          "node": 1,
+          "amount": 1,
+          "detail": "Sentinel co-location deals 1 HP."
+        }
+      ]
+    },
+    {
+      "leg": 1,
+      "turn": 2,
+      "actions": {
+        "A": {
+          "type": "move",
+          "target": 3
+        },
+        "B": {
+          "type": "move",
+          "target": 0
+        }
+      },
+      "events": [
+        {
+          "leg": 1,
+          "turn": 2,
+          "kind": "raider-move",
+          "actor": "A",
+          "node": 3,
+          "amount": null,
+          "detail": "Raider enters Hub."
+        },
+        {
+          "leg": 1,
+          "turn": 2,
+          "kind": "sentinel-move",
+          "actor": "B",
+          "node": 0,
+          "amount": null,
+          "detail": "Sentinel moves to Entry."
+        }
+      ]
+    },
+    {
+      "leg": 1,
+      "turn": 3,
+      "actions": {
+        "A": {
+          "type": "take"
+        },
+        "B": {
+          "type": "move",
+          "target": 2
+        }
+      },
+      "events": [
+        {
+          "leg": 1,
+          "turn": 3,
+          "kind": "take",
+          "actor": "A",
+          "node": 3,
+          "amount": null,
+          "detail": "Raider takes the core."
+        },
+        {
+          "leg": 1,
+          "turn": 3,
+          "kind": "sentinel-move",
+          "actor": "B",
+          "node": 2,
+          "amount": null,
+          "detail": "Sentinel moves to South."
+        }
+      ]
+    },
+    {
+      "leg": 1,
+      "turn": 4,
+      "actions": {
+        "A": {
+          "type": "move",
+          "target": 1
+        },
+        "B": {
+          "type": "move",
+          "target": 3
+        }
+      },
+      "events": [
+        {
+          "leg": 1,
+          "turn": 4,
+          "kind": "raider-move",
+          "actor": "A",
+          "node": 1,
+          "amount": null,
+          "detail": "Raider enters North."
+        },
+        {
+          "leg": 1,
+          "turn": 4,
+          "kind": "sentinel-move",
+          "actor": "B",
+          "node": 3,
+          "amount": null,
+          "detail": "Sentinel moves to Hub."
+        }
+      ]
+    },
+    {
+      "leg": 1,
+      "turn": 5,
+      "actions": {
+        "A": {
+          "type": "move",
+          "target": 0
+        },
+        "B": {
+          "type": "move",
+          "target": 1
+        }
+      },
+      "events": [
+        {
+          "leg": 1,
+          "turn": 5,
+          "kind": "raider-move",
+          "actor": "A",
+          "node": 0,
+          "amount": null,
+          "detail": "Raider enters Entry."
+        },
+        {
+          "leg": 1,
+          "turn": 5,
+          "kind": "sentinel-move",
+          "actor": "B",
+          "node": 1,
+          "amount": null,
+          "detail": "Sentinel moves to North."
+        }
+      ]
+    },
+    {
+      "leg": 1,
+      "turn": 6,
+      "actions": {
+        "A": {
+          "type": "extract"
+        },
+        "B": {
+          "type": "move",
+          "target": 0
+        }
+      },
+      "events": [
+        {
+          "leg": 1,
+          "turn": 6,
+          "kind": "sentinel-move",
+          "actor": "B",
+          "node": 0,
+          "amount": null,
+          "detail": "Sentinel moves to Entry."
+        },
+        {
+          "leg": 1,
+          "turn": 6,
+          "kind": "collision",
+          "actor": "B",
+          "node": 0,
+          "amount": 1,
+          "detail": "Sentinel co-location deals 1 HP."
+        },
+        {
+          "leg": 1,
+          "turn": 6,
+          "kind": "extracted",
+          "actor": "A",
+          "node": 0,
+          "amount": null,
+          "detail": "Raider extracts the core."
+        },
+        {
+          "leg": 1,
+          "turn": 6,
+          "kind": "leg-complete",
+          "actor": null,
+          "node": null,
+          "amount": null,
+          "detail": "Leg 1 completes: extracted."
+        },
+        {
+          "leg": 1,
+          "turn": 6,
+          "kind": "role-swap",
+          "actor": null,
+          "node": null,
+          "amount": null,
+          "detail": "Seats swap raider and sentinel roles."
+        }
+      ]
+    },
+    {
+      "leg": 2,
+      "turn": 1,
+      "actions": {
+        "A": {
+          "type": "move",
+          "target": 1
+        },
+        "B": {
+          "type": "move",
+          "target": 1
+        }
+      },
+      "events": [
+        {
+          "leg": 2,
+          "turn": 1,
+          "kind": "lock-blocked",
+          "actor": "B",
+          "node": 1,
+          "amount": null,
+          "detail": "A live lock blocks entry to North."
+        },
+        {
+          "leg": 2,
+          "turn": 1,
+          "kind": "sentinel-move",
+          "actor": "A",
+          "node": 1,
+          "amount": null,
+          "detail": "Sentinel moves to North."
+        }
+      ]
+    },
+    {
+      "leg": 2,
+      "turn": 2,
+      "actions": {
+        "A": {
+          "type": "move",
+          "target": 0
+        },
+        "B": {
+          "type": "breach",
+          "target": 1
+        }
+      },
+      "events": [
+        {
+          "leg": 2,
+          "turn": 2,
+          "kind": "breach-hit",
+          "actor": "B",
+          "node": 1,
+          "amount": 1,
+          "detail": "Lock at North is breached."
+        },
+        {
+          "leg": 2,
+          "turn": 2,
+          "kind": "sentinel-move",
+          "actor": "A",
+          "node": 0,
+          "amount": null,
+          "detail": "Sentinel moves to Entry."
+        },
+        {
+          "leg": 2,
+          "turn": 2,
+          "kind": "collision",
+          "actor": "A",
+          "node": 0,
+          "amount": 1,
+          "detail": "Sentinel co-location deals 1 HP."
+        }
+      ]
+    },
+    {
+      "leg": 2,
+      "turn": 3,
+      "actions": {
+        "A": {
+          "type": "move",
+          "target": 1
+        },
+        "B": {
+          "type": "move",
+          "target": 1
+        }
+      },
+      "events": [
+        {
+          "leg": 2,
+          "turn": 3,
+          "kind": "raider-move",
+          "actor": "B",
+          "node": 1,
+          "amount": null,
+          "detail": "Raider enters North."
+        },
+        {
+          "leg": 2,
+          "turn": 3,
+          "kind": "sentinel-move",
+          "actor": "A",
+          "node": 1,
+          "amount": null,
+          "detail": "Sentinel moves to North."
+        },
+        {
+          "leg": 2,
+          "turn": 3,
+          "kind": "collision",
+          "actor": "A",
+          "node": 1,
+          "amount": 1,
+          "detail": "Sentinel co-location deals 1 HP."
+        }
+      ]
+    },
+    {
+      "leg": 2,
+      "turn": 4,
+      "actions": {
+        "A": {
+          "type": "wait"
+        },
+        "B": {
+          "type": "move",
+          "target": 3
+        }
+      },
+      "events": [
+        {
+          "leg": 2,
+          "turn": 4,
+          "kind": "lock-blocked",
+          "actor": "B",
+          "node": 3,
+          "amount": null,
+          "detail": "A live lock blocks entry to Hub."
+        },
+        {
+          "leg": 2,
+          "turn": 4,
+          "kind": "sentinel-wait",
+          "actor": "A",
+          "node": 1,
+          "amount": null,
+          "detail": "Sentinel waits."
+        },
+        {
+          "leg": 2,
+          "turn": 4,
+          "kind": "collision",
+          "actor": "A",
+          "node": 1,
+          "amount": 1,
+          "detail": "Sentinel co-location deals 1 HP."
+        }
+      ]
+    },
+    {
+      "leg": 2,
+      "turn": 5,
+      "actions": {
+        "A": {
+          "type": "wait"
+        },
+        "B": {
+          "type": "breach",
+          "target": 3
+        }
+      },
+      "events": [
+        {
+          "leg": 2,
+          "turn": 5,
+          "kind": "breach-hit",
+          "actor": "B",
+          "node": 3,
+          "amount": 1,
+          "detail": "Lock at Hub is breached."
+        },
+        {
+          "leg": 2,
+          "turn": 5,
+          "kind": "sentinel-wait",
+          "actor": "A",
+          "node": 1,
+          "amount": null,
+          "detail": "Sentinel waits."
+        },
+        {
+          "leg": 2,
+          "turn": 5,
+          "kind": "collision",
+          "actor": "A",
+          "node": 1,
+          "amount": 1,
+          "detail": "Sentinel co-location deals 1 HP."
+        }
+      ]
+    },
+    {
+      "leg": 2,
+      "turn": 6,
+      "actions": {
+        "A": {
+          "type": "move",
+          "target": 3
+        },
+        "B": {
+          "type": "move",
+          "target": 3
+        }
+      },
+      "events": [
+        {
+          "leg": 2,
+          "turn": 6,
+          "kind": "raider-move",
+          "actor": "B",
+          "node": 3,
+          "amount": null,
+          "detail": "Raider enters Hub."
+        },
+        {
+          "leg": 2,
+          "turn": 6,
+          "kind": "sentinel-move",
+          "actor": "A",
+          "node": 3,
+          "amount": null,
+          "detail": "Sentinel moves to Hub."
+        },
+        {
+          "leg": 2,
+          "turn": 6,
+          "kind": "collision",
+          "actor": "A",
+          "node": 3,
+          "amount": 1,
+          "detail": "Sentinel co-location deals 1 HP."
+        }
+      ]
+    },
+    {
+      "leg": 2,
+      "turn": 7,
+      "actions": {
+        "A": {
+          "type": "move",
+          "target": 4
+        },
+        "B": {
+          "type": "move",
+          "target": 4
+        }
+      },
+      "events": [
+        {
+          "leg": 2,
+          "turn": 7,
+          "kind": "raider-move",
+          "actor": "B",
+          "node": 4,
+          "amount": null,
+          "detail": "Raider enters Vault."
+        },
+        {
+          "leg": 2,
+          "turn": 7,
+          "kind": "sentinel-move",
+          "actor": "A",
+          "node": 4,
+          "amount": null,
+          "detail": "Sentinel moves to Vault."
+        },
+        {
+          "leg": 2,
+          "turn": 7,
+          "kind": "trap",
+          "actor": "A",
+          "node": 4,
+          "amount": 2,
+          "detail": "Trap at Vault deals 2 HP and is spent."
+        },
+        {
+          "leg": 2,
+          "turn": 7,
+          "kind": "collision",
+          "actor": "A",
+          "node": 4,
+          "amount": 1,
+          "detail": "Sentinel co-location deals 1 HP."
+        },
+        {
+          "leg": 2,
+          "turn": 7,
+          "kind": "raider-dead",
+          "actor": "B",
+          "node": 4,
+          "amount": null,
+          "detail": "Raider HP reaches zero."
+        },
+        {
+          "leg": 2,
+          "turn": 7,
+          "kind": "leg-complete",
+          "actor": null,
+          "node": null,
+          "amount": null,
+          "detail": "Leg 2 completes: dead."
+        },
+        {
+          "leg": 2,
+          "turn": 7,
+          "kind": "series-complete",
+          "actor": null,
+          "node": null,
+          "amount": null,
+          "detail": "Seat A wins the series."
+        }
+      ]
+    }
+  ],
+  "abort": null,
+  "events": [
+    {
+      "leg": 1,
+      "turn": 1,
+      "kind": "raider-move",
+      "actor": "A",
+      "node": 1,
+      "amount": null,
+      "detail": "Raider enters North."
+    },
+    {
+      "leg": 1,
+      "turn": 1,
+      "kind": "sentinel-move",
+      "actor": "B",
+      "node": 1,
+      "amount": null,
+      "detail": "Sentinel moves to North."
+    },
+    {
+      "leg": 1,
+      "turn": 1,
+      "kind": "collision",
+      "actor": "B",
+      "node": 1,
+      "amount": 1,
+      "detail": "Sentinel co-location deals 1 HP."
+    },
+    {
+      "leg": 1,
+      "turn": 2,
+      "kind": "raider-move",
+      "actor": "A",
+      "node": 3,
+      "amount": null,
+      "detail": "Raider enters Hub."
+    },
+    {
+      "leg": 1,
+      "turn": 2,
+      "kind": "sentinel-move",
+      "actor": "B",
+      "node": 0,
+      "amount": null,
+      "detail": "Sentinel moves to Entry."
+    },
+    {
+      "leg": 1,
+      "turn": 3,
+      "kind": "take",
+      "actor": "A",
+      "node": 3,
+      "amount": null,
+      "detail": "Raider takes the core."
+    },
+    {
+      "leg": 1,
+      "turn": 3,
+      "kind": "sentinel-move",
+      "actor": "B",
+      "node": 2,
+      "amount": null,
+      "detail": "Sentinel moves to South."
+    },
+    {
+      "leg": 1,
+      "turn": 4,
+      "kind": "raider-move",
+      "actor": "A",
+      "node": 1,
+      "amount": null,
+      "detail": "Raider enters North."
+    },
+    {
+      "leg": 1,
+      "turn": 4,
+      "kind": "sentinel-move",
+      "actor": "B",
+      "node": 3,
+      "amount": null,
+      "detail": "Sentinel moves to Hub."
+    },
+    {
+      "leg": 1,
+      "turn": 5,
+      "kind": "raider-move",
+      "actor": "A",
+      "node": 0,
+      "amount": null,
+      "detail": "Raider enters Entry."
+    },
+    {
+      "leg": 1,
+      "turn": 5,
+      "kind": "sentinel-move",
+      "actor": "B",
+      "node": 1,
+      "amount": null,
+      "detail": "Sentinel moves to North."
+    },
+    {
+      "leg": 1,
+      "turn": 6,
+      "kind": "sentinel-move",
+      "actor": "B",
+      "node": 0,
+      "amount": null,
+      "detail": "Sentinel moves to Entry."
+    },
+    {
+      "leg": 1,
+      "turn": 6,
+      "kind": "collision",
+      "actor": "B",
+      "node": 0,
+      "amount": 1,
+      "detail": "Sentinel co-location deals 1 HP."
+    },
+    {
+      "leg": 1,
+      "turn": 6,
+      "kind": "extracted",
+      "actor": "A",
+      "node": 0,
+      "amount": null,
+      "detail": "Raider extracts the core."
+    },
+    {
+      "leg": 1,
+      "turn": 6,
+      "kind": "leg-complete",
+      "actor": null,
+      "node": null,
+      "amount": null,
+      "detail": "Leg 1 completes: extracted."
+    },
+    {
+      "leg": 1,
+      "turn": 6,
+      "kind": "role-swap",
+      "actor": null,
+      "node": null,
+      "amount": null,
+      "detail": "Seats swap raider and sentinel roles."
+    },
+    {
+      "leg": 2,
+      "turn": 1,
+      "kind": "lock-blocked",
+      "actor": "B",
+      "node": 1,
+      "amount": null,
+      "detail": "A live lock blocks entry to North."
+    },
+    {
+      "leg": 2,
+      "turn": 1,
+      "kind": "sentinel-move",
+      "actor": "A",
+      "node": 1,
+      "amount": null,
+      "detail": "Sentinel moves to North."
+    },
+    {
+      "leg": 2,
+      "turn": 2,
+      "kind": "breach-hit",
+      "actor": "B",
+      "node": 1,
+      "amount": 1,
+      "detail": "Lock at North is breached."
+    },
+    {
+      "leg": 2,
+      "turn": 2,
+      "kind": "sentinel-move",
+      "actor": "A",
+      "node": 0,
+      "amount": null,
+      "detail": "Sentinel moves to Entry."
+    },
+    {
+      "leg": 2,
+      "turn": 2,
+      "kind": "collision",
+      "actor": "A",
+      "node": 0,
+      "amount": 1,
+      "detail": "Sentinel co-location deals 1 HP."
+    },
+    {
+      "leg": 2,
+      "turn": 3,
+      "kind": "raider-move",
+      "actor": "B",
+      "node": 1,
+      "amount": null,
+      "detail": "Raider enters North."
+    },
+    {
+      "leg": 2,
+      "turn": 3,
+      "kind": "sentinel-move",
+      "actor": "A",
+      "node": 1,
+      "amount": null,
+      "detail": "Sentinel moves to North."
+    },
+    {
+      "leg": 2,
+      "turn": 3,
+      "kind": "collision",
+      "actor": "A",
+      "node": 1,
+      "amount": 1,
+      "detail": "Sentinel co-location deals 1 HP."
+    },
+    {
+      "leg": 2,
+      "turn": 4,
+      "kind": "lock-blocked",
+      "actor": "B",
+      "node": 3,
+      "amount": null,
+      "detail": "A live lock blocks entry to Hub."
+    },
+    {
+      "leg": 2,
+      "turn": 4,
+      "kind": "sentinel-wait",
+      "actor": "A",
+      "node": 1,
+      "amount": null,
+      "detail": "Sentinel waits."
+    },
+    {
+      "leg": 2,
+      "turn": 4,
+      "kind": "collision",
+      "actor": "A",
+      "node": 1,
+      "amount": 1,
+      "detail": "Sentinel co-location deals 1 HP."
+    },
+    {
+      "leg": 2,
+      "turn": 5,
+      "kind": "breach-hit",
+      "actor": "B",
+      "node": 3,
+      "amount": 1,
+      "detail": "Lock at Hub is breached."
+    },
+    {
+      "leg": 2,
+      "turn": 5,
+      "kind": "sentinel-wait",
+      "actor": "A",
+      "node": 1,
+      "amount": null,
+      "detail": "Sentinel waits."
+    },
+    {
+      "leg": 2,
+      "turn": 5,
+      "kind": "collision",
+      "actor": "A",
+      "node": 1,
+      "amount": 1,
+      "detail": "Sentinel co-location deals 1 HP."
+    },
+    {
+      "leg": 2,
+      "turn": 6,
+      "kind": "raider-move",
+      "actor": "B",
+      "node": 3,
+      "amount": null,
+      "detail": "Raider enters Hub."
+    },
+    {
+      "leg": 2,
+      "turn": 6,
+      "kind": "sentinel-move",
+      "actor": "A",
+      "node": 3,
+      "amount": null,
+      "detail": "Sentinel moves to Hub."
+    },
+    {
+      "leg": 2,
+      "turn": 6,
+      "kind": "collision",
+      "actor": "A",
+      "node": 3,
+      "amount": 1,
+      "detail": "Sentinel co-location deals 1 HP."
+    },
+    {
+      "leg": 2,
+      "turn": 7,
+      "kind": "raider-move",
+      "actor": "B",
+      "node": 4,
+      "amount": null,
+      "detail": "Raider enters Vault."
+    },
+    {
+      "leg": 2,
+      "turn": 7,
+      "kind": "sentinel-move",
+      "actor": "A",
+      "node": 4,
+      "amount": null,
+      "detail": "Sentinel moves to Vault."
+    },
+    {
+      "leg": 2,
+      "turn": 7,
+      "kind": "trap",
+      "actor": "A",
+      "node": 4,
+      "amount": 2,
+      "detail": "Trap at Vault deals 2 HP and is spent."
+    },
+    {
+      "leg": 2,
+      "turn": 7,
+      "kind": "collision",
+      "actor": "A",
+      "node": 4,
+      "amount": 1,
+      "detail": "Sentinel co-location deals 1 HP."
+    },
+    {
+      "leg": 2,
+      "turn": 7,
+      "kind": "raider-dead",
+      "actor": "B",
+      "node": 4,
+      "amount": null,
+      "detail": "Raider HP reaches zero."
+    },
+    {
+      "leg": 2,
+      "turn": 7,
+      "kind": "leg-complete",
+      "actor": null,
+      "node": null,
+      "amount": null,
+      "detail": "Leg 2 completes: dead."
+    },
+    {
+      "leg": 2,
+      "turn": 7,
+      "kind": "series-complete",
+      "actor": null,
+      "node": null,
+      "amount": null,
+      "detail": "Seat A wins the series."
+    }
+  ],
+  "result": {
+    "status": "completed",
+    "winner": "A",
+    "reason": "one-extraction"
+  },
+  "finalState": {
+    "rulesVersion": "vault-1",
+    "phase": "completed",
+    "config": {
+      "name": "Ciani external seat smoke",
+      "layouts": {
+        "A": {
+          "core": 4,
+          "locks": [
+            1,
+            3
+          ],
+          "traps": [
+            2,
+            4
+          ]
+        },
+        "B": {
+          "core": 3,
+          "locks": [],
+          "traps": []
+        }
+      },
+      "entrants": {
+        "A": "external",
+        "B": "scripted"
+      },
+      "styles": {
+        "A": {
+          "raider": "direct",
+          "sentinel": "pursuit"
+        },
+        "B": {
+          "raider": "direct",
+          "sentinel": "patrol"
+        }
+      }
+    },
+    "current": {
+      "leg": 2,
+      "turn": 7,
+      "raiderSeat": "B",
+      "defenderSeat": "A",
+      "raiderPosition": 4,
+      "sentinelPosition": 4,
+      "hp": 0,
+      "tools": 2,
+      "carryingCore": false,
+      "liveLocks": [],
+      "liveTraps": [
+        2
+      ],
+      "spentTraps": [
+        4
+      ],
+      "knowledge": {
+        "0": {
+          "node": 0,
+          "lock": "none",
+          "trap": "none",
+          "core": false,
+          "visited": true,
+          "scanned": false
+        },
+        "1": {
+          "node": 1,
+          "lock": "breached",
+          "trap": "none",
+          "core": false,
+          "visited": true,
+          "scanned": false
+        },
+        "2": {
+          "node": 2,
+          "lock": "unknown",
+          "trap": "unknown",
+          "core": null,
+          "visited": false,
+          "scanned": false
+        },
+        "3": {
+          "node": 3,
+          "lock": "breached",
+          "trap": "none",
+          "core": false,
+          "visited": true,
+          "scanned": false
+        },
+        "4": {
+          "node": 4,
+          "lock": "none",
+          "trap": "spent",
+          "core": true,
+          "visited": true,
+          "scanned": false
+        }
+      }
+    },
+    "completedLegs": [
+      {
+        "leg": 1,
+        "raider": "A",
+        "defender": "B",
+        "extracted": true,
+        "usedBeats": 6,
+        "hpRemaining": 4,
+        "reason": "extracted"
+      },
+      {
+        "leg": 2,
+        "raider": "B",
+        "defender": "A",
+        "extracted": false,
+        "usedBeats": 7,
+        "hpRemaining": 0,
+        "reason": "dead"
+      }
+    ],
+    "history": [
+      {
+        "leg": 1,
+        "turn": 1,
+        "actions": {
+          "A": {
+            "type": "move",
+            "target": 1
+          },
+          "B": {
+            "type": "move",
+            "target": 1
+          }
+        },
+        "events": [
+          {
+            "leg": 1,
+            "turn": 1,
+            "kind": "raider-move",
+            "actor": "A",
+            "node": 1,
+            "amount": null,
+            "detail": "Raider enters North."
+          },
+          {
+            "leg": 1,
+            "turn": 1,
+            "kind": "sentinel-move",
+            "actor": "B",
+            "node": 1,
+            "amount": null,
+            "detail": "Sentinel moves to North."
+          },
+          {
+            "leg": 1,
+            "turn": 1,
+            "kind": "collision",
+            "actor": "B",
+            "node": 1,
+            "amount": 1,
+            "detail": "Sentinel co-location deals 1 HP."
+          }
+        ]
+      },
+      {
+        "leg": 1,
+        "turn": 2,
+        "actions": {
+          "A": {
+            "type": "move",
+            "target": 3
+          },
+          "B": {
+            "type": "move",
+            "target": 0
+          }
+        },
+        "events": [
+          {
+            "leg": 1,
+            "turn": 2,
+            "kind": "raider-move",
+            "actor": "A",
+            "node": 3,
+            "amount": null,
+            "detail": "Raider enters Hub."
+          },
+          {
+            "leg": 1,
+            "turn": 2,
+            "kind": "sentinel-move",
+            "actor": "B",
+            "node": 0,
+            "amount": null,
+            "detail": "Sentinel moves to Entry."
+          }
+        ]
+      },
+      {
+        "leg": 1,
+        "turn": 3,
+        "actions": {
+          "A": {
+            "type": "take"
+          },
+          "B": {
+            "type": "move",
+            "target": 2
+          }
+        },
+        "events": [
+          {
+            "leg": 1,
+            "turn": 3,
+            "kind": "take",
+            "actor": "A",
+            "node": 3,
+            "amount": null,
+            "detail": "Raider takes the core."
+          },
+          {
+            "leg": 1,
+            "turn": 3,
+            "kind": "sentinel-move",
+            "actor": "B",
+            "node": 2,
+            "amount": null,
+            "detail": "Sentinel moves to South."
+          }
+        ]
+      },
+      {
+        "leg": 1,
+        "turn": 4,
+        "actions": {
+          "A": {
+            "type": "move",
+            "target": 1
+          },
+          "B": {
+            "type": "move",
+            "target": 3
+          }
+        },
+        "events": [
+          {
+            "leg": 1,
+            "turn": 4,
+            "kind": "raider-move",
+            "actor": "A",
+            "node": 1,
+            "amount": null,
+            "detail": "Raider enters North."
+          },
+          {
+            "leg": 1,
+            "turn": 4,
+            "kind": "sentinel-move",
+            "actor": "B",
+            "node": 3,
+            "amount": null,
+            "detail": "Sentinel moves to Hub."
+          }
+        ]
+      },
+      {
+        "leg": 1,
+        "turn": 5,
+        "actions": {
+          "A": {
+            "type": "move",
+            "target": 0
+          },
+          "B": {
+            "type": "move",
+            "target": 1
+          }
+        },
+        "events": [
+          {
+            "leg": 1,
+            "turn": 5,
+            "kind": "raider-move",
+            "actor": "A",
+            "node": 0,
+            "amount": null,
+            "detail": "Raider enters Entry."
+          },
+          {
+            "leg": 1,
+            "turn": 5,
+            "kind": "sentinel-move",
+            "actor": "B",
+            "node": 1,
+            "amount": null,
+            "detail": "Sentinel moves to North."
+          }
+        ]
+      },
+      {
+        "leg": 1,
+        "turn": 6,
+        "actions": {
+          "A": {
+            "type": "extract"
+          },
+          "B": {
+            "type": "move",
+            "target": 0
+          }
+        },
+        "events": [
+          {
+            "leg": 1,
+            "turn": 6,
+            "kind": "sentinel-move",
+            "actor": "B",
+            "node": 0,
+            "amount": null,
+            "detail": "Sentinel moves to Entry."
+          },
+          {
+            "leg": 1,
+            "turn": 6,
+            "kind": "collision",
+            "actor": "B",
+            "node": 0,
+            "amount": 1,
+            "detail": "Sentinel co-location deals 1 HP."
+          },
+          {
+            "leg": 1,
+            "turn": 6,
+            "kind": "extracted",
+            "actor": "A",
+            "node": 0,
+            "amount": null,
+            "detail": "Raider extracts the core."
+          },
+          {
+            "leg": 1,
+            "turn": 6,
+            "kind": "leg-complete",
+            "actor": null,
+            "node": null,
+            "amount": null,
+            "detail": "Leg 1 completes: extracted."
+          },
+          {
+            "leg": 1,
+            "turn": 6,
+            "kind": "role-swap",
+            "actor": null,
+            "node": null,
+            "amount": null,
+            "detail": "Seats swap raider and sentinel roles."
+          }
+        ]
+      },
+      {
+        "leg": 2,
+        "turn": 1,
+        "actions": {
+          "A": {
+            "type": "move",
+            "target": 1
+          },
+          "B": {
+            "type": "move",
+            "target": 1
+          }
+        },
+        "events": [
+          {
+            "leg": 2,
+            "turn": 1,
+            "kind": "lock-blocked",
+            "actor": "B",
+            "node": 1,
+            "amount": null,
+            "detail": "A live lock blocks entry to North."
+          },
+          {
+            "leg": 2,
+            "turn": 1,
+            "kind": "sentinel-move",
+            "actor": "A",
+            "node": 1,
+            "amount": null,
+            "detail": "Sentinel moves to North."
+          }
+        ]
+      },
+      {
+        "leg": 2,
+        "turn": 2,
+        "actions": {
+          "A": {
+            "type": "move",
+            "target": 0
+          },
+          "B": {
+            "type": "breach",
+            "target": 1
+          }
+        },
+        "events": [
+          {
+            "leg": 2,
+            "turn": 2,
+            "kind": "breach-hit",
+            "actor": "B",
+            "node": 1,
+            "amount": 1,
+            "detail": "Lock at North is breached."
+          },
+          {
+            "leg": 2,
+            "turn": 2,
+            "kind": "sentinel-move",
+            "actor": "A",
+            "node": 0,
+            "amount": null,
+            "detail": "Sentinel moves to Entry."
+          },
+          {
+            "leg": 2,
+            "turn": 2,
+            "kind": "collision",
+            "actor": "A",
+            "node": 0,
+            "amount": 1,
+            "detail": "Sentinel co-location deals 1 HP."
+          }
+        ]
+      },
+      {
+        "leg": 2,
+        "turn": 3,
+        "actions": {
+          "A": {
+            "type": "move",
+            "target": 1
+          },
+          "B": {
+            "type": "move",
+            "target": 1
+          }
+        },
+        "events": [
+          {
+            "leg": 2,
+            "turn": 3,
+            "kind": "raider-move",
+            "actor": "B",
+            "node": 1,
+            "amount": null,
+            "detail": "Raider enters North."
+          },
+          {
+            "leg": 2,
+            "turn": 3,
+            "kind": "sentinel-move",
+            "actor": "A",
+            "node": 1,
+            "amount": null,
+            "detail": "Sentinel moves to North."
+          },
+          {
+            "leg": 2,
+            "turn": 3,
+            "kind": "collision",
+            "actor": "A",
+            "node": 1,
+            "amount": 1,
+            "detail": "Sentinel co-location deals 1 HP."
+          }
+        ]
+      },
+      {
+        "leg": 2,
+        "turn": 4,
+        "actions": {
+          "A": {
+            "type": "wait"
+          },
+          "B": {
+            "type": "move",
+            "target": 3
+          }
+        },
+        "events": [
+          {
+            "leg": 2,
+            "turn": 4,
+            "kind": "lock-blocked",
+            "actor": "B",
+            "node": 3,
+            "amount": null,
+            "detail": "A live lock blocks entry to Hub."
+          },
+          {
+            "leg": 2,
+            "turn": 4,
+            "kind": "sentinel-wait",
+            "actor": "A",
+            "node": 1,
+            "amount": null,
+            "detail": "Sentinel waits."
+          },
+          {
+            "leg": 2,
+            "turn": 4,
+            "kind": "collision",
+            "actor": "A",
+            "node": 1,
+            "amount": 1,
+            "detail": "Sentinel co-location deals 1 HP."
+          }
+        ]
+      },
+      {
+        "leg": 2,
+        "turn": 5,
+        "actions": {
+          "A": {
+            "type": "wait"
+          },
+          "B": {
+            "type": "breach",
+            "target": 3
+          }
+        },
+        "events": [
+          {
+            "leg": 2,
+            "turn": 5,
+            "kind": "breach-hit",
+            "actor": "B",
+            "node": 3,
+            "amount": 1,
+            "detail": "Lock at Hub is breached."
+          },
+          {
+            "leg": 2,
+            "turn": 5,
+            "kind": "sentinel-wait",
+            "actor": "A",
+            "node": 1,
+            "amount": null,
+            "detail": "Sentinel waits."
+          },
+          {
+            "leg": 2,
+            "turn": 5,
+            "kind": "collision",
+            "actor": "A",
+            "node": 1,
+            "amount": 1,
+            "detail": "Sentinel co-location deals 1 HP."
+          }
+        ]
+      },
+      {
+        "leg": 2,
+        "turn": 6,
+        "actions": {
+          "A": {
+            "type": "move",
+            "target": 3
+          },
+          "B": {
+            "type": "move",
+            "target": 3
+          }
+        },
+        "events": [
+          {
+            "leg": 2,
+            "turn": 6,
+            "kind": "raider-move",
+            "actor": "B",
+            "node": 3,
+            "amount": null,
+            "detail": "Raider enters Hub."
+          },
+          {
+            "leg": 2,
+            "turn": 6,
+            "kind": "sentinel-move",
+            "actor": "A",
+            "node": 3,
+            "amount": null,
+            "detail": "Sentinel moves to Hub."
+          },
+          {
+            "leg": 2,
+            "turn": 6,
+            "kind": "collision",
+            "actor": "A",
+            "node": 3,
+            "amount": 1,
+            "detail": "Sentinel co-location deals 1 HP."
+          }
+        ]
+      },
+      {
+        "leg": 2,
+        "turn": 7,
+        "actions": {
+          "A": {
+            "type": "move",
+            "target": 4
+          },
+          "B": {
+            "type": "move",
+            "target": 4
+          }
+        },
+        "events": [
+          {
+            "leg": 2,
+            "turn": 7,
+            "kind": "raider-move",
+            "actor": "B",
+            "node": 4,
+            "amount": null,
+            "detail": "Raider enters Vault."
+          },
+          {
+            "leg": 2,
+            "turn": 7,
+            "kind": "sentinel-move",
+            "actor": "A",
+            "node": 4,
+            "amount": null,
+            "detail": "Sentinel moves to Vault."
+          },
+          {
+            "leg": 2,
+            "turn": 7,
+            "kind": "trap",
+            "actor": "A",
+            "node": 4,
+            "amount": 2,
+            "detail": "Trap at Vault deals 2 HP and is spent."
+          },
+          {
+            "leg": 2,
+            "turn": 7,
+            "kind": "collision",
+            "actor": "A",
+            "node": 4,
+            "amount": 1,
+            "detail": "Sentinel co-location deals 1 HP."
+          },
+          {
+            "leg": 2,
+            "turn": 7,
+            "kind": "raider-dead",
+            "actor": "B",
+            "node": 4,
+            "amount": null,
+            "detail": "Raider HP reaches zero."
+          },
+          {
+            "leg": 2,
+            "turn": 7,
+            "kind": "leg-complete",
+            "actor": null,
+            "node": null,
+            "amount": null,
+            "detail": "Leg 2 completes: dead."
+          },
+          {
+            "leg": 2,
+            "turn": 7,
+            "kind": "series-complete",
+            "actor": null,
+            "node": null,
+            "amount": null,
+            "detail": "Seat A wins the series."
+          }
+        ]
+      }
+    ],
+    "result": {
+      "status": "completed",
+      "winner": "A",
+      "reason": "one-extraction"
+    }
+  },
+  "finalStateHash": "ccb7eb137dc738570270e293e0358325b6285cf572deb3884230b0b992b060c5"
+}

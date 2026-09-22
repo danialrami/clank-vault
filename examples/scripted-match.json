@@ -1,0 +1,13 @@
+{
+  "name": "Scripted browser demo",
+  "layouts": {
+    "A": { "core": 3, "locks": [], "traps": [] },
+    "B": { "core": 3, "locks": [], "traps": [] }
+  },
+  "coaching": { "A": "", "B": "" },
+  "entrants": { "A": "scripted", "B": "scripted" },
+  "styles": {
+    "A": { "raider": "direct", "sentinel": "patrol" },
+    "B": { "raider": "direct", "sentinel": "patrol" }
+  }
+}

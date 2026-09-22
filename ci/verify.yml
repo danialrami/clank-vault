@@ -1,0 +1,31 @@
+# STAGED TEMPLATE ONLY. This file is intentionally outside .github/workflows and is not active CI.
+# Owner authorization is required before copying it to .github/workflows/verify.yml.
+name: verify-clank-vault
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    # Personal public-repository exception: no private self-hosted runner is assumed.
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+      - name: Set up exact Node version
+        uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
+        with:
+          node-version-file: .node-version
+          cache: npm
+      - name: Install frozen dependencies
+        run: npm ci
+      - name: Typecheck, build, unit/API/CLI, and deterministic replay
+        run: npm run verify
+      - name: Real-browser click E2E
+        run: npm run test:e2e

@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>Clank Vault</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="masthead">
+    <p class="eyebrow">LAN-FIRST ABSTRACT BOARD GAME</p>
+    <h1>Clank Vault</h1>
+    <p class="lede">Build a five-node fortress, raid it in sealed simultaneous beats, swap roles, and inspect a deterministic replay.</p>
+    <p class="safety">Board game only — no real exploits, VMs, credentials, or shell tools.</p>
+  </header>
+
+  <main>
+    <section class="panel setup" aria-labelledby="setup-title">
+      <div class="section-heading">
+        <div><p class="eyebrow">01 / CONFIGURE</p><h2 id="setup-title">Fortress & entrants</h2></div>
+        <p id="server-status" class="badge">Checking referee…</p>
+      </div>
+
+      <div class="setup-grid">
+        <fieldset>
+          <legend>Series</legend>
+          <label>Match name <input id="match-name" maxlength="120" value="Browser practice"></label>
+          <label>Preset
+            <select id="preset">
+              <option value="open">Open lanes</option>
+              <option value="max">Maximum legal budget</option>
+              <option value="custom">Custom editor</option>
+            </select>
+          </label>
+          <p class="fine-print">The preset fills both independent fortresses. Change any defense to enter custom mode.</p>
+        </fieldset>
+        <fieldset id="layout-a" class="layout-editor">
+          <legend>Seat A fortress</legend>
+          <label>Core <select data-field="core"><option value="3">Hub (3)</option><option value="4">Vault (4)</option></select></label>
+          <div class="defense-row"><span>Locks</span><span data-kind="locks"></span></div>
+          <div class="defense-row"><span>Traps</span><span data-kind="traps"></span></div>
+          <p class="budget" data-budget>0 / 4 defense points</p>
+        </fieldset>
+        <fieldset id="layout-b" class="layout-editor">
+          <legend>Seat B fortress</legend>
+          <label>Core <select data-field="core"><option value="3">Hub (3)</option><option value="4">Vault (4)</option></select></label>
+          <div class="defense-row"><span>Locks</span><span data-kind="locks"></span></div>
+          <div class="defense-row"><span>Traps</span><span data-kind="traps"></span></div>
+          <p class="budget" data-budget>0 / 4 defense points</p>
+        </fieldset>
+      </div>
+
+      <div class="entrant-grid">
+        <fieldset>
+          <legend>Seat A controller</legend>
+          <label>Mode <select id="mode-a"><option value="scripted">Scripted practice</option><option value="external">Manual / external</option></select></label>
+          <label>Raider style <select id="raider-a"><option value="direct">Direct</option><option value="cautious">Cautious</option></select></label>
+          <label>Sentinel style <select id="sentinel-a"><option value="patrol">Patrol</option><option value="pursuit">Pursuit</option></select></label>
+          <label>Private coaching note <textarea id="note-a" maxlength="1000" placeholder="Authenticated Seat A observation only"></textarea></label>
+        </fieldset>
+        <fieldset>
+          <legend>Seat B controller</legend>
+          <label>Mode <select id="mode-b"><option value="scripted">Scripted practice</option><option value="external">Manual / external</option></select></label>
+          <label>Raider style <select id="raider-b"><option value="direct">Direct</option><option value="cautious">Cautious</option></select></label>
+          <label>Sentinel style <select id="sentinel-b"><option value="patrol">Patrol</option><option value="pursuit">Pursuit</option></select></label>
+          <label>Private coaching note <textarea id="note-b" maxlength="1000" placeholder="Authenticated Seat B observation only"></textarea></label>
+        </fieldset>
+      </div>
+      <div class="actions-row">
+        <button id="start" class="primary">Start practice series</button>
+        <button id="rematch" disabled>Rematch with current setup</button>
+      </div>
+      <p id="setup-error" class="error" role="alert"></p>
+      <details>
+        <summary>Manual and external agent path</summary>
+        <p>Choose <strong>Manual / external</strong> for a seat. This page exposes that seat’s legal action buttons below and keeps its bearer capability in memory only. A game-only agent can instead use <code>clank-vault observe</code> and <code>clank-vault act</code> with a token read from an environment variable. Scripted styles are deterministic policies, not LLMs; external usage is unverified/null.</p>
+      </details>
+    </section>
+
+    <section class="panel arena" aria-labelledby="arena-title">
+      <div class="section-heading">
+        <div><p class="eyebrow">02 / PLAY</p><h2 id="arena-title">Vault floor</h2></div>
+        <p id="match-status" class="badge quiet">No match</p>
+      </div>
+      <div class="arena-grid">
+        <div>
+          <div id="board" class="board" aria-label="Five-node vault map">
+            <svg viewBox="0 0 420 300" aria-hidden="true">
+              <line x1="55" y1="150" x2="170" y2="70"></line><line x1="55" y1="150" x2="170" y2="230"></line>
+              <line x1="170" y1="70" x2="285" y2="150"></line><line x1="170" y1="230" x2="285" y2="150"></line>
+              <line x1="285" y1="150" x2="385" y2="150"></line>
+            </svg>
+            <div class="node n0" data-node="0"><span class="node-id">0</span><strong>Entry</strong><small>public</small></div>
+            <div class="node n1" data-node="1"><span class="node-id">1</span><strong>North</strong><small>unknown</small></div>
+            <div class="node n2" data-node="2"><span class="node-id">2</span><strong>South</strong><small>unknown</small></div>
+            <div class="node n3" data-node="3"><span class="node-id">3</span><strong>Hub</strong><small>unknown</small></div>
+            <div class="node n4" data-node="4"><span class="node-id">4</span><strong>Vault</strong><small>unknown</small></div>
+          </div>
+          <div id="stats" class="stats" aria-live="polite"><span>Leg —</span><span>Beat —</span><span>HP —</span><span>Tools —</span></div>
+        </div>
+        <aside>
+          <h3>Public revelations</h3>
+          <ul id="revelations" class="event-list"><li>Start a match to reveal the public timeline.</li></ul>
+          <h3>Completed legs</h3>
+          <ol id="legs" class="event-list"><li>None yet.</li></ol>
+        </aside>
+      </div>
+
+      <div id="manual-controls" class="manual-controls" hidden>
+        <div class="section-heading compact"><h3>Authenticated manual seat</h3><button id="refresh-seat">Refresh</button></div>
+        <div class="seat-tabs"><button data-seat="A">Seat A</button><button data-seat="B">Seat B</button></div>
+        <p id="private-summary" class="fine-print"></p>
+        <div id="legal-actions" class="action-buttons"></div>
+      </div>
+    </section>
+
+    <section class="panel replay-panel" aria-labelledby="replay-title">
+      <div class="section-heading">
+        <div><p class="eyebrow">03 / REVIEW</p><h2 id="replay-title">Deterministic replay</h2></div>
+        <button id="load-replay" disabled>Inspect replay</button>
+      </div>
+      <p id="series-outcome" class="outcome">A completed or aborted series unlocks both layouts and the full replay.</p>
+      <div id="replay-viewer" hidden>
+        <div class="replay-nav">
+          <button id="replay-prev">Previous beat</button>
+          <strong id="replay-counter">Beat 1 / 1</strong>
+          <button id="replay-next">Next beat</button>
+          <button id="download-replay">Download JSON</button>
+        </div>
+        <pre id="replay-step"></pre>
+        <p id="replay-proof" class="fine-print"></p>
+      </div>
+    </section>
+  </main>
+
+  <footer><p>Rules <strong>vault-1</strong> · Ephemeral trusted-LAN host · Export terminal replays to retain them.</p></footer>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>

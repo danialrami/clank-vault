@@ -1,0 +1,37 @@
+{
+  "name": "clank-vault",
+  "version": "1.0.0",
+  "description": "LAN-first hidden-information abstract board game",
+  "type": "module",
+  "private": true,
+  "license": "UNLICENSED",
+  "engines": {
+    "node": "24.14.1"
+  },
+  "bin": {
+    "clank-vault": "dist/src/cli.js"
+  },
+  "scripts": {
+    "clean": "node scripts/clean.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "build": "npm run clean && tsc -p tsconfig.json && node scripts/copy-static.mjs",
+    "test": "npm run test:unit",
+    "test:unit": "node --test dist/test/*.test.js",
+    "test:engine": "node --test dist/test/engine.test.js",
+    "test:api": "node --test dist/test/api.test.js",
+    "test:cli": "node --test dist/test/cli.test.js",
+    "verify:replay": "node dist/scripts/verify-replay.js",
+    "verify": "npm run typecheck && npm run build && npm run test:unit && npm run verify:replay",
+    "test:e2e": "npm run build && node test/browser.mjs",
+    "start": "node dist/src/cli.js serve"
+  },
+  "dependencies": {
+    "fastify": "5.12.5"
+  },
+  "devDependencies": {
+    "@sparticuz/chromium": "153.0.0",
+    "@types/node": "24.10.1",
+    "playwright": "1.63.0",
+    "typescript": "7.0.2"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "Two external seats",
+  "layouts": {
+    "A": { "core": 3, "locks": [1], "traps": [2] },
+    "B": { "core": 4, "locks": [2, 3], "traps": [1, 4] }
+  },
+  "coaching": {
+    "A": "Prefer evidence over guessing.",
+    "B": "Protect the return path."
+  },
+  "entrants": { "A": "external", "B": "external" },
+  "styles": {
+    "A": { "raider": "cautious", "sentinel": "pursuit" },
+    "B": { "raider": "direct", "sentinel": "patrol" }
+  }
+}
